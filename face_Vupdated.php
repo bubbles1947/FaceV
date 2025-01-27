@@ -1,8 +1,5 @@
 <?php
-// Start the session to access session variables
 session_start();
-
-// Prevent caching of this page
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
@@ -24,7 +21,7 @@ header("Pragma: no-cache");
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <!-- Logo here -->
+            
                 </div>
                 <div class="graphy-logo">
                     <h1>Face_<span style="color: aquamarine;">V</span></h1>
