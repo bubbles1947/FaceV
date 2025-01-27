@@ -1,23 +1,14 @@
 <?php
-// signup.php
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Connect to MySQL
     $conn = new mysqli('localhost', 'root', '', 'persons');
-    
-    // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Get form data
     $email = $_POST['email'];
     $password = $_POST['password'];
-
-    // Hash the password before storing
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Insert user data into database
     $stmt = $conn->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
     $stmt->bind_param("ss", $email, $hashed_password);
     
