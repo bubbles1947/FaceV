@@ -1,11 +1,8 @@
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-/* Body Styling */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -13,8 +10,6 @@ body {
     background-color: #f4f4f9;
     padding: 0 20px;
 }
-
-/* Header Styling */
 header {
     background: #4CAF50;
     color: white;
@@ -50,8 +45,6 @@ header nav ul li a {
 header nav ul li a:hover {
     color: #ffdd57;
 }
-
-/* Main Content Styling */
 main {
     max-width: 900px;
     margin: 0 auto;
@@ -77,7 +70,6 @@ main p {
     font-size: 1.1rem;
 }
 
-/* Form Styling */
 form {
     display: flex;
     flex-direction: column;
@@ -120,7 +112,6 @@ form button:hover {
     background: #45a049;
 }
 
-/* Button Styling */
 button {
     padding: 12px 20px;
     background: #4CAF50;
@@ -136,8 +127,6 @@ button {
 button:hover {
     background: #45a049;
 }
-
-/* Response Display */
 .response {
     margin-top: 20px;
     padding: 15px;
@@ -148,8 +137,6 @@ button:hover {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
-
-/* Footer Styling */
 footer {
     text-align: center;
     margin-top: 30px;
