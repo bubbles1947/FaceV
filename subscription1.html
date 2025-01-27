@@ -48,21 +48,14 @@
     <footer>
         <p>&copy; 2024 Face Recognition Web App NSU.</p>
     </footer>
-
-    <!-- JavaScript Section -->
     <script>
-     // Function to handle the image upload and processing
 function uploadImage() {
     const formData = new FormData(document.getElementById('uploadForm'));
-
-    // Ensure username is provided
     const username = document.getElementById('username').value;
     if (!username) {
         document.getElementById('uploadResponse').innerText = 'Please enter a username.';
         return;
     }
-
-    // Clear any previous messages
     document.getElementById('uploadResponse').innerText = '';
 
     fetch('http://127.0.0.1:5000/upload_image', {
@@ -71,7 +64,6 @@ function uploadImage() {
     })
     .then(response => response.json())
     .then(data => {
-        // Check if there was a success message
         if (data.message && !data.error) {
             document.getElementById('uploadResponse').innerText = 'Upload successful!';
         } else if (data.error) {
@@ -80,13 +72,10 @@ function uploadImage() {
     })
     .catch(error => {
         console.error('Error:', error);
-      //  document.getElementById('uploadResponse').innerText = 'Error processing the image.';
     });
 }
 
-// Function to handle the start of face recognition
 function startFaceRecognition() {
-    // Clear any previous messages
     document.getElementById('recognitionResponse').innerText = '';
 
     fetch('http://127.0.0.1:5000/start_face_recognition', {
@@ -94,7 +83,6 @@ function startFaceRecognition() {
     })
     .then(response => response.json())
     .then(data => {
-        // Check if there was a success message
         if (data.message && !data.error) {
             document.getElementById('recognitionResponse').innerText = 'Face recognition started successfully!';
         } else if (data.error) {
@@ -103,7 +91,6 @@ function startFaceRecognition() {
     })
     .catch(error => {
         console.error('Error:', error);
-      //  document.getElementById('recognitionResponse').innerText = 'Error starting face recognition.';
     });
 }
 
