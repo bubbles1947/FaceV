@@ -1,33 +1,25 @@
 <?php
-// login.php
-
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Connect to MySQL
+
     $conn = new mysqli('localhost', 'root', '', 'persons');
-    
-    // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Get form data
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Prepare and execute the query to fetch user data
     $stmt = $conn->prepare("SELECT id, email, password FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
     $stmt->bind_result($id, $db_email, $db_password);
 
-    // Check if email exists and password matches
     if ($stmt->num_rows > 0) {
         $stmt->fetch();
         if (password_verify($password, $db_password)) {
-            // Password is correct, start session and redirect
             $_SESSION['user_id'] = $id;
             $_SESSION['email'] = $db_email;
             header('Location:face_Vupdated.php');
